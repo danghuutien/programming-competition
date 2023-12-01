@@ -1,5 +1,6 @@
 {
     "/assets/build/css/general.min.css": "/assets/build/css/general.min.css",
+    "/assets/build/css/home.min.css": "/assets/build/css/home.min.css",
     "/assets/build/js/general.min.js": "/assets/build/js/general.min.js",
     "/assets/build/js/main.min.js": "/assets/build/js/main.min.js"
 }

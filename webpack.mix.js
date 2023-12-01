@@ -35,6 +35,12 @@ buildSass = [
          'public/assets/sass/slide.scss',
       ],
    },
+   {
+      'file_path': 'public/assets/build/css/home.min.css',
+      'files': [
+         'public/assets/sass/home.scss',
+      ],
+   },
 ];
 
 build.map(function(item, index) {

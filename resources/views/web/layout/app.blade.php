@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="agent" content="{{ checkAgent() }}">
     {{-- Các meta seo --}}
-    @include('layouts.components.seo')
+    @include('web.general.layouts.seo')
     {{-- Cấu hình Asset --}}
     <style>
 		@php
@@ -23,7 +23,7 @@
             <div class="toast-message"></div>
         </div>
     </div>
-    @include('layouts.components.backtop')
+    @include('web.general.layouts.components.backtop')
     @yield('content')
     <script src="{{ asset('assets/libs/jquery/jquery.min.js?v='.config('Asset.vesion'))}}"></script>
     <script src="{{asset('assets/libs/venobox/js/venobox.min.js?v='.config('SudoAsset.vesion'))}}"></script>

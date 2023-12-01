@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::name('app.')->group(function() {
+    Route::match(['GET', 'POST'], '/', [HomeController::class, 'index'])->name('home');
+});
+
+Route::name('admin.')->group(function() {
+    //
 });
