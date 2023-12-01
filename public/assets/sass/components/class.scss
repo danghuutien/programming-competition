@@ -1,0 +1,72 @@
+@import 'mixin.scss';
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-center {
+    @include flex(center, center);
+}
+.flex-center-left {
+    @include flex(center, flex-start);
+}
+.flex-center-between {
+    @include flex(center, space-between);
+}
+.flex-center-around {
+    @include flex(center, space-around);
+}
+.flex-center-right {
+    @include flex(center, flex-end);
+}
+.flex-left-center {
+    @include flex(flex-start, center);
+}
+.flex-top-between {
+    @include flex(flex-start, center)
+}
+.flex-right-center {
+    @include flex(flex-end, center);
+}
+.text-center {
+    text-align: center;
+    width: 100%;
+}
+.f-w-b {
+    font-weight: bold;
+}
+.f-italic {
+    font-style: italic;
+}
+.color-main {
+    color: $color_main;
+}
+.white {
+    color: #fff;
+}
+.black {
+    color: #000;
+}
+.text-up {
+    text-transform: uppercase;
+}
+.w-100 {
+    width: 100%;
+}
+.fw-600 {
+    font-weight: 600;
+}
+.fw-500 {
+    font-weight: 500;
+}
+.color_head {
+    color: $color_text_header;
+    &:hover {
+        color: $color_text_header_hover;
+    }
+}
+.color_title {
+    color: $color_text_accent;
+}
+.color_desc {
+    color: $color_text_desc;
+}

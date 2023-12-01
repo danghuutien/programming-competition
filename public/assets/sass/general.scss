@@ -1,0 +1,128 @@
+@import 'components/mixin.scss';
+@import 'components/grid.scss';
+@import 'components/class.scss';
+@import 'components/toast.scss';
+* {
+    box-sizing: border-box;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: roboto;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+body {
+    background-color: #fff !important;
+    // background: #f3f3f3;
+    font-size: 16px;
+    font-family: $font_family;
+    font-weight: 500;    
+}
+input, button, textarea {
+     font-family: 'Roboto',sans-serif;
+}
+ul { 
+    list-style: none;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: $color_text_header;
+    transition: 0.3s;
+    &:hover {
+        color: $color_text_header_hover;
+    }
+}
+
+h1,h2,h3,h4,span,p {
+    color: $color_text_accent;
+}
+h1,h2,h3,h4 {
+    font-weight: 600;
+}
+p {
+    line-height: 28px;
+}
+input {
+    padding: 0 10px;
+}
+.main {
+    background: #fff;
+}
+.title_box {
+    transition: 0.3s;
+    &:hover {
+        text-decoration-line: underline;
+    }
+}
+button {
+    background: $background_button;
+    color: $color_text_button;
+    transition: 0.3s;
+    &:hover {
+        background: $background_button_hover;
+    }
+}
+.btn {
+    display: inline-block;
+    background: $background_button;
+    color: $color_text_button;
+    transition: 0.5s;
+    border-radius: 5px;
+    &:hover {
+        background: $background_button_hover;
+    }
+}
+span{
+    color: #727272;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.pagination__numbers{
+    .paginate_item{
+        &.active{
+            color:#fff;
+            background-color:#1A64AE;
+        }
+    }
+}
+.cta {
+    position: fixed;
+    right: 1rem;
+    bottom: 3rem;
+    .cta-list__item {
+        .item {
+            width: 43px;
+            height: 43px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .backtop {
+            opacity: 0;
+            visibility: hidden;
+            background: #0d30ae;
+            transition: 0.5s;
+            -webkit-transition: 0.5s;
+            -khtml-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            -o-transition: 0.5s;
+            &.active{
+                opacity: 1;
+                visibility: visible;
+            }
+            svg path {
+                fill: #ffffff;
+            }
+        }
+    }
+  }

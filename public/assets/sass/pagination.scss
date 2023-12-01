@@ -1,0 +1,18 @@
+.perpage{
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 40px;
+    .pagination__numbers.pagination{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        .paginate_item{
+            padding: 3px 7px;
+            line-height: normal;
+            font-size: 13px;
+            margin: 0 4px;
+            border: 1px solid #727272;
+            cursor: pointer;
+        }
+    } 
+}
