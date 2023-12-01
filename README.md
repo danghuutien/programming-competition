@@ -11,7 +11,7 @@
 
 # Yêu cầu bắt buộc để tối ưu page speed
 * Thẻ a, input, button bắt buộc có thuộc tính aria-label
-* Thẻ image bắt buộc sử dụng components Default::general.components.image, có đủ thuộc tính width, height, alt, lazy nếu có
+* Thẻ image bắt buộc sử dụng components 'web.general.components.image', có đủ thuộc tính width, height, alt, lazy nếu có
 * Thẻ button bắt buộc có thuộc tính name
 * Scss, js bắt buộc viết đúng chuẩn tách theo các components nhỏ và sử dụng build theo config webpack.mix.js
 * Hình ảnh nằm trong khung nhìn đầu tiên không được đặt lazy
