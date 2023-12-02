@@ -153,3 +153,12 @@ function getDomain($link) {
     $domain = parse_url($link, PHP_URL_HOST);
     return $domain;
 }
+function getUrlLink($url=''){
+    switch ($url) {
+        case 'current':     $link = url()->current();       break;
+        case 'back':        $link = url()->previous();      break;
+        case 'full':        $link = url()->full();          break;
+        default:            $link = url('');                break;
+    }
+    return $link;
+}

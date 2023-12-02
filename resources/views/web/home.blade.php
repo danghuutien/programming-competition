@@ -7,5 +7,5 @@
 	</style>
 @endsection
 @section('content')
-	
+	<h1>đặng hữu tiến</h1>
 @endsection
