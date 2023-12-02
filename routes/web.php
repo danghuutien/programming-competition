@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +24,7 @@ Route::name('app.')->group(function() {
     Route::match(['GET', 'POST'], '/', [HomeController::class, 'index'])->name('home');
 });
 
-Route::name('admin.')->group(function() {
-    //
+Route::prefix('admin')->name('admin.')->group(function() {
+    Route::match(['GET', 'POST'], 'login', [AuthController::class, 'login'])->name('login');
+    Route::match(['GET', 'POST'], '/', [AdminController::class, 'index'])->name('home');
 });

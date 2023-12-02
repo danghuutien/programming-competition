@@ -25,6 +25,12 @@ build = [
          'public/assets/js/main.js',
       ],
    },
+   // {
+   //    'file_path': 'public/admin_assets/build/js/app.min.js',
+   //    'files': [
+   //       'public/admin_assets/js/app.js',
+   //    ],
+   // },
 ];
 buildSass = [
    {
@@ -41,8 +47,16 @@ buildSass = [
          'public/assets/sass/home.scss',
       ],
    },
+   
+   {
+      'file_path': 'public/admin_assets/build/css/app.min.css',
+      'files': [
+         'public/admin_assets/sass/app.scss',
+      ],
+   },
 ];
-
+mix.js('public/admin_assets/js/app.js', 'public/admin_assets/build/js/app.min.js');
+mix.vue();
 build.map(function(item, index) {
    mix.scripts(item.files, item.file_path);
 });

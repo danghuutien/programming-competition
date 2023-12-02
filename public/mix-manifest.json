@@ -1,4 +1,6 @@
 {
+    "/admin_assets/build/js/app.min.js": "/admin_assets/build/js/app.min.js",
+    "/admin_assets/build/css/app.min.css": "/admin_assets/build/css/app.min.css",
     "/assets/build/css/general.min.css": "/assets/build/css/general.min.css",
     "/assets/build/css/home.min.css": "/assets/build/css/home.min.css",
     "/assets/build/js/general.min.js": "/assets/build/js/general.min.js",
