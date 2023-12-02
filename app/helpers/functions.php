@@ -162,3 +162,56 @@ function getUrlLink($url=''){
     }
     return $link;
 }
+function randomCodeOrder() {
+    $string = '0123456789abcdefghijklmnopqrstuvwxyz';
+    $code = 'TSK' . strtoupper(substr(str_shuffle(str_repeat($string, 7)), 0, 7));
+    $code_order = \Sudo\Ecommerce\Models\Order::pluck('code')->toArray();
+    $check = true;
+    while ($check) {
+        if (!in_array($code, $code_order)) {
+            $check = false;
+        } else {
+            $check = true;
+            $code = 'TSK' . strtoupper(substr(str_shuffle(str_repeat($string, 7)), 0, 7));
+        }
+    }
+    return $code;
+}
+function getIdVideo($link) {
+    $pattern = '/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/';
+    preg_match_all($pattern,$link,$data);
+    $video_id = $data[1][0];
+    return $video_id;
+}
+function getThumbnail($video_id,$size='big') {
+    if ($size == 'small') {
+        return 'https://img.youtube.com/vi/'.$video_id.'/2.jpg';
+    } else {
+        return 'https://img.youtube.com/vi/'.$video_id.'/maxresdefault.jpg';
+    }
+}
+
+function addWebp($image) {
+    $source = $image;
+    try {
+        $path = $image;
+        $disk = 'local';
+        $upload = Storage::disk($disk);
+        if(!$upload->exists($image)) {
+            return $image;
+        }
+        $webpPath = $image.'.webp';
+        if($upload->exists($webpPath)) {
+            return $webpPath;
+        }
+        $image = file_get_contents(asset($image));
+        $image = Image::make($image);
+        $image_convert = $image->encode('webp')->stream('webp',100);
+        $upload->put($path.'.webp', $image_convert->__toString(),'public');
+        return $webpPath;
+    } catch (\Exception $e) {
+        \Log::error('addWebp error for image '.$source);
+        \Log::error($e->getMessage());
+        return $source;
+    }   
+}
