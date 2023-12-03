@@ -5,7 +5,7 @@ use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-
+route::get('add/product', [ProductController::class, 'add'])->name('product.add');
+route::post('product/inser', [ProductController::class, 'inser'])->name('product.inser');
+route::get('product/index', [ProductController::class, 'index'])->name('product.index');
+route::get('product/delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
+route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+route::post('product/update/{id}', [ProductController::class, 'update'])->name('product.update');
 Route::name('app.')->group(function() {
     Route::match(['GET', 'POST'], '/', [HomeController::class, 'index'])->name('home');
     Route::match(['GET', 'POST'], '/tim-kiem',[SearchController::class ,'index'])->name('search.index');
