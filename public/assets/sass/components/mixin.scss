@@ -1,58 +1,87 @@
-// deaclare variable
-$color_main: #000;;
-$color_primary: #1A64AE;
-$color_text_header: var(--color_text_header);
-$color_text_header_hover: var(--color_text_header_hover);
-$background_button: var(--background_button);
-$color_text_button: var(--color_text_button);
-$color_text_accent: var(--color_text_accent);
-$background_button_hover: var(--background_button_hover);
-$color_text_desc: var(--color_text_desc);
-$font_family: 'Roboto', sans-serif;
+$primary_bgk: #fff;
+$primary_color: #1C2E3D;
+$text_color: #303030;
+$background_color: #DE0200;
+$color_43: #434343;
+@mixin clear_box {
+    width: 100%;
+    float: left;
+    clear: both;
+}
+@mixin image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
 /* dùng cho một vài thuộc tính riêng cho trình duyện VD: transition, box-shadow */
 @mixin css3($atribute, $params) {
-	#{$atribute}: #{$params};
-	-webkit-#{$atribute}: #{$params};
-	-khtml-#{$atribute}: #{$params};
-	-moz-#{$atribute}: #{$params};
-	-ms-#{$atribute}: #{$params};
-	-o-#{$atribute}: #{$params};
+    #{$atribute}: #{$params};
+    -webkit-#{$atribute}: #{$params};
+    -khtml-#{$atribute}: #{$params};
+    -moz-#{$atribute}: #{$params};
+    -ms-#{$atribute}: #{$params};
+    -o-#{$atribute}: #{$params};
 }
 /* căn giữa chiều dọc và ngang trên 1 box */
 @mixin center_element($height) {
-	display: grid;
+    display: grid;
     place-items: center;
     height: #{$height};
 }
 /* background opacity */
 @mixin bg-opacity($color, $opacity) {
-	position: relative;
-	&:before {
-		content: "";
-		top: 0; 
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: #{$color};
-		opacity: #{$opacity};
-		position: absolute;
-	}
-}
-@mixin flex($align, $justify) {
-    display: flex;
-	align-items: $align;
-	justify-content: $justify;
+    position: relative;
+    &:before {
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #{$color};
+        opacity: #{$opacity};
+        position: absolute;
+    }
 }
 @mixin webkit-box($number) {
-	display: -webkit-box;
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: $number;
     overflow: hidden;
 }
-
-// 3. Breakpoints
+@-webkit-keyframes xoayvong{
+  from{
+          -webkit-transform:rotate(0deg);
+          -moz-transform:rotate(0deg);
+          -o-transform:rotate(0deg);
+      }
+    to{
+          -webkit-transform:rotate(360deg);
+          -moz-transform:rotate(360deg);
+          -o-transform:rotate(360deg);
+  }
+}
+/* Standard syntax */ 
+@keyframes xoayvong {
+  from{
+          -webkit-transform:rotate(0deg);
+          -moz-transform:rotate(0deg);
+          -o-transform:rotate(0deg);
+      }
+    to{
+          -webkit-transform:rotate(360deg);
+          -moz-transform:rotate(360deg);
+          -o-transform:rotate(360deg);
+  }
+}
+@keyframes loading {
+    100% {
+        width: 100%;
+    }
+}
 $breakpoints: (se: 375px, xs: 480px, sm: 576px, md: 768px, lg: 992px, xm: 1024px, xl: 1200px, xxl: 1600px, xlst: 1920px);
-$max-breakpoints: (se: 374px, xs: 479px, sm: 575px, md: 767px, lg: 991px, xl: 1199px, xxl: 1599px);
+$max-breakpoints: (se: 374px, xs: 479px, sm: 575px, md: 767px, lg: 991px, xl: 1199px, xxl: 1399px);
 
 // Use @include mq(lg, 'max') for max-width or @include mq(lg)
 
@@ -73,24 +102,24 @@ $max-breakpoints: (se: 374px, xs: 479px, sm: 575px, md: 767px, lg: 991px, xl: 11
 }
 
 @mixin scroll_bar {
-	$scrollbar_color: $color_main !default;
-	$scrollbar_bg: #ccc !default;
-	scrollbar-color: $scrollbar_color $scrollbar_bg;
-	scrollbar-width: thin;
+    $scrollbar_color: $background_color !default;
+    $scrollbar_bg: #ccc !default;
+    scrollbar-color: $scrollbar_color $scrollbar_bg;
+    scrollbar-width: thin;
 
-	scrollbar-face-color: $scrollbar_color;
-	scrollbar-track-color: $scrollbar_bg;
-	&::-webkit-scrollbar {
-	    width: 5px;
-	    height: 5px;
-	}
-	&::-webkit-scrollbar-track {
-	    background: $scrollbar_bg; 
-	}
-	&::-webkit-scrollbar-thumb {
-	    background: $scrollbar_color;
-	}
-	&::-webkit-scrollbar-thumb:hover {
-	    background: #68767b; 
-	}
+    scrollbar-face-color: $scrollbar_color;
+    scrollbar-track-color: $scrollbar_bg;
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: $scrollbar_bg;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $scrollbar_color;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: #68767b;
+    }
 }
