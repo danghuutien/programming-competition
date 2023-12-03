@@ -19,15 +19,12 @@ return new class extends Migration
             // Tên
             $table->string('name');
             // Đường dẫn
-            $table->string('slug')->unique();
+           
             // Ảnh
             $table->text('image')->nullable();
-             // Ảnh icon hiển thị tại menu
-            $table->text('icon')->nullable(); 
             // Nội dung
             $table->longtext('detail')->nullable();
             // Sắp xếp
-            $table->integer('order')->default(99999);
             // Trạng thái (-1 Xóa | 0 Không hoạt động | 1 Hoạt động)
             $table->tinyInteger('status')->default(1);
             // Ngày đăng/cập nhật
